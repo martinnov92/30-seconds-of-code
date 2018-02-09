@@ -1,6 +1,6 @@
 ### isPrimitive
 
-Returns a boolean determining if the supplied value is primitive or not.
+Returns a boolean determining if the passed value is primitive or not.
 
 Use `Array.includes()` on an array of type strings which are not primitive,
 supplying the type using `typeof`.
@@ -11,12 +11,10 @@ const isPrimitive = val => !['object', 'function'].includes(typeof val) || val =
 ```
 
 ```js
-isPrimitive(window.someNonExistentProperty); // true
 isPrimitive(null); // true
 isPrimitive(50); // true
 isPrimitive('Hello!'); // true
 isPrimitive(false); // true
 isPrimitive(Symbol()); // true
 isPrimitive([]); // false
-isPrimitive(new String('Hello!')); // false
 ```

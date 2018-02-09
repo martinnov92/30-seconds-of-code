@@ -9,7 +9,11 @@ const fs = require('fs-extra');
 const cp = require('child_process');
 const path = require('path');
 const chalk = require('chalk');
-
+const util = require('./util');
+if(util.isTravisCI() && /^Travis build: \d+/g.test(process.env['TRAVIS_COMMIT_MESSAGE'])) {
+  console.log(`${chalk.green('NOBUILD')} Linting terminated, parent commit is a Travis build!`);
+  process.exit(0);
+}
 const SNIPPETS_PATH = './snippets';
 const TEMP_PATH = './temp';
 
